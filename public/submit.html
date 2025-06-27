@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إرسال تقرير - thaghrah</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">thaghrah</div>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+    </nav>
+  </header>
+
+  <section class="container form-section">
+    <div class="form-card">
+      <h2>إرسال تقرير ثغرة</h2>
+      <form id="report-form">
+        <div class="form-group">
+          <label>عنوان الثغرة</label>
+          <input type="text" name="title" placeholder="مثلاً SQL Injection" required>
+        </div>
+        <div class="form-group">
+          <label>الوصف</label>
+          <textarea name="description" rows="5" placeholder="اشرح تفاصيل الثغرة…" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>نوع الثغرة</label>
+          <select name="type">
+            <option>SQL Injection</option>
+            <option>XSS</option>
+            <option>CSRF</option>
+            <option>IDOR</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">إرسال التقرير</button>
+      </form>
+      <div id="report-feedback"></div>
+    </div>
+  </section>
+</body>
+</html>

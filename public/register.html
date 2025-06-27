@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>تسجيل جديد – thaghrah</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container form-section">
+  <h2>إنشاء حساب</h2>
+  <form id="reg-form">
+    <label>البريد الإلكتروني<input name="email" type="email" required></label>
+    <label>كلمة المرور<input name="password" type="password" required></label>
+    <label>الدور
+      <select name="role">
+        <option value="hacker">باحث</option>
+        <option value="company">شركة</option>
+      </select>
+    </label>
+    <button type="submit" class="btn btn-primary">سجل الآن</button>
+  </form>
+</div>
+<script>
+document.getElementById('reg-form').onsubmit = async e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const res = await fetch('/auth/register', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  });
+  if((await res.json()).success) location='index.html';
+  else alert('حدث خطأ');
+};
+</script>
+</body>
+</html>
