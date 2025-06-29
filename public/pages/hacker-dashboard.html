@@ -3,6 +3,10 @@
 <head>…</head>
 <body>
   <header class="navbar">…</header>
+  <div class="top-actions">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    <button id="installBtn" hidden>Install App</button>
+  </div>
   <div class="container">
     <h2>لوحة التحكم – باحث</h2>
     <div id="stats" class="feature-cards"></div>
@@ -32,5 +36,7 @@
           </tr>`).join('')}</tbody>`;
     })();
   </script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/pwa.js"></script>
 </body>
 </html>
