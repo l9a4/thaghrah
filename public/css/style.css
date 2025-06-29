@@ -1,4 +1,3 @@
-```css
 /* public/css/style.css */
 
 /* استيراد خط Poppins */
@@ -20,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* خلفية الفيديو مشتركة */
+/* خلفية الفيديو */
 .bg-video {
   position: fixed;
   top: 0;
@@ -32,7 +31,7 @@ body {
   opacity: 0.6;
 }
 
-/* شريط التنقل */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -78,7 +77,7 @@ body {
   color: #fff;
 }
 
-/* قسم Hero */
+/* Hero */
 .hero {
   display: flex;
   flex-direction: column;
@@ -128,7 +127,7 @@ body {
   60% { transform: translateY(5px); }
 }
 
-/* قسم المزايا */
+/* Features */
 .features {
   padding: 4rem 2rem;
   background: #111;
@@ -165,7 +164,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* شهادات المستخدمين */
+/* Testimonials */
 .testimonials {
   padding: 4rem 2rem;
 }
@@ -199,7 +198,7 @@ body {
   color: #ccc;
 }
 
-/* دعوة ثانوية CTA */
+/* CTA Secondary */
 .cta-secondary {
   padding: 3rem 2rem;
   text-align: center;
@@ -212,70 +211,45 @@ body {
   font-size: 1rem;
 }
 
-/* Modal تسجيل/دخول */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+/* Auth Pages */
+.auth-page {
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 200;
+  align-items: center;
+  padding: 4rem 1rem;
 }
-.modal {
-  background: #111;
+.auth-card {
+  background: rgba(0, 0, 0, 0.8);
   padding: 2rem;
   border-radius: 8px;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
-  position: relative;
+  text-align: center;
 }
-.modal-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-}
-.modal h2 {
-  margin-bottom: 1rem;
-}
-.modal form input {
+.auth-form input {
   width: 100%;
   padding: 0.7rem;
   margin: 0.5rem 0;
   border: none;
   border-radius: 4px;
+  background: #111;
+  color: #fff;
 }
-.modal form button {
-  width: 100%;
-  padding: 0.7rem;
-  margin-top: 1rem;
-  border: none;
+.social-wrap {
+  margin: 1rem 0;
+}
+.btn-social {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
 }
-
-/* صفحة الدورات */
-.courses-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-.courses-hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.8rem;
-}
-.courses-hero p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
+.btn-social.google   { background: #db4437; }
+.btn-social.facebook { background: #4267B2; }
+.btn-social.github   { background: #333; }
+.btn-social.apple    { background: #000; }
 
 /* Footer */
 .footer {
@@ -283,4 +257,3 @@ body {
   padding: 2rem 0;
   background: rgba(0, 0, 0, 0.8);
 }
-```

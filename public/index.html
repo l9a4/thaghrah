@@ -43,12 +43,8 @@
       <a href="/pages/company-dashboard.html" aria-label="لوحة الشركات">Companies</a>
 
       <!-- روابط المصادقة -->
-      <button class="btn-auth" onclick="openAuth('login')" aria-label="تسجيل دخول">
-        تسجيل دخول
-      </button>
-      <button class="btn-auth" onclick="openAuth('register')" aria-label="إنشاء حساب">
-        إنشاء حساب
-      </button>
+      <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
+      <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
 
       <!-- تبديل اللغة -->
       <a href="?lang=en" class="lang-toggle" aria-label="Switch to English">EN</a>
@@ -61,7 +57,7 @@
       أول منصة <span class="gradient-text">Bug Bounty</span> عربية
     </h1>
     <p>ربط الباحثين الأمنيين مع الشركات بأحدث التقنيات</p>
-    <button class="btn-primary" onclick="openAuth('login')">ابدأ الآن</button>
+    <a href="/pages/login.html" class="btn-primary">ابدأ الآن</a>
 
     <!-- سهم للتمرير -->
     <a href="#features" class="scroll-down" aria-label="Scroll Down">
@@ -114,32 +110,12 @@
   <!-- دعوة ثانية للتسجيل -->
   <section class="cta-secondary container">
     <h2>هل أنت مستعد لرفع مستوى أمانك؟</h2>
-    <button class="btn-primary" onclick="openAuth('register')">سجّل الآن مجاناً</button>
+    <a href="/pages/register.html" class="btn-primary">سجّل الآن مجاناً</a>
   </section>
 
   <!-- الفوتر -->
   <footer class="footer">
     <p>© 2025 thaghrah. جميع الحقوق محفوظة.</p>
   </footer>
-
-  <!-- موديال التسجيل/الدخول -->
-  <div id="authModal" class="modal-backdrop" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-heading">
-      <button class="modal-close" aria-label="Close" onclick="closeAuth()">×</button>
-      <h2 id="auth-heading">تسجيل دخول</h2>
-      <form id="authForm">
-        <input type="email" id="authEmail" placeholder="البريد الإلكتروني" required />
-        <input type="password" id="authPass" placeholder="كلمة المرور" required />
-        <button type="submit" class="btn-primary">دخول</button>
-      </form>
-      <p>
-        ليس لديك حساب؟
-        <a href="#" onclick="switchAuth('register')">إنشاء حساب</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- السكريبت الرئيسي -->
-  <script type="module" src="/js/app.js"></script>
 </body>
 </html>
