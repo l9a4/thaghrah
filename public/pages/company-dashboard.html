@@ -1,36 +1,34 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>…</head>
-<body>
-  <header class="navbar">…</header>
-  <div class="container">
-    <h2>لوحة التحكم – شركة</h2>
-    <h3>برامجك</h3>
-    <div id="company-programs" class="feature-cards"></div>
-    <h3>التقارير الواردة</h3>
-    <table id="company-reports" class="report-table"></table>
-  </div>
-  <script>
-    (async()=>{
-      const [pRes,rRes]=await Promise.all([
-        fetch('/api/company/programs'),
-        fetch('/api/company/reports')
-      ]);
-      if(!pRes.ok||!rRes.ok) return location.href='/pages/login.html';
-      const {programs}=await pRes.json();
-      const {reports}=await rRes.json();
-      const cp = document.getElementById('company-programs');
-      programs.forEach(p=>{
-        const c=document.createElement('div');
-        c.className='card';
-        c.innerHTML=`<h3>${p.name}</h3><p>المكافأة: ${p.reward}</p><p>${p.description}</p>`;
-        cp.appendChild(c);
-      });
-      const cr=document.getElementById('company-reports');
-      cr.innerHTML=`<thead><tr><th>العنوان</th><th>الباحث</th><th>الحالة</th></tr></thead>
-        <tbody>${reports.map(r=>`
-          <tr><td>${r.title}</td><td>${r.hacker}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
-    })();
-  </script>
-</body>
-</html>
+diff --git a/public/pages/company-dashboard.html b/public/pages/company-dashboard.html
+index 0b9e5d7ebea1255ac99f580e2ac466333cd7c529..4008c95ef3aca142570143a182c8af92500a0c70 100644
+--- a/public/pages/company-dashboard.html
++++ b/public/pages/company-dashboard.html
+@@ -10,27 +10,29 @@
+     <h3>التقارير الواردة</h3>
+     <table id="company-reports" class="report-table"></table>
+   </div>
+   <script>
+     (async()=>{
+       const [pRes,rRes]=await Promise.all([
+         fetch('/api/company/programs'),
+         fetch('/api/company/reports')
+       ]);
+       if(!pRes.ok||!rRes.ok) return location.href='/pages/login.html';
+       const {programs}=await pRes.json();
+       const {reports}=await rRes.json();
+       const cp = document.getElementById('company-programs');
+       programs.forEach(p=>{
+         const c=document.createElement('div');
+         c.className='card';
+         c.innerHTML=`<h3>${p.name}</h3><p>المكافأة: ${p.reward}</p><p>${p.description}</p>`;
+         cp.appendChild(c);
+       });
+       const cr=document.getElementById('company-reports');
+       cr.innerHTML=`<thead><tr><th>العنوان</th><th>الباحث</th><th>الحالة</th></tr></thead>
+         <tbody>${reports.map(r=>`
+           <tr><td>${r.title}</td><td>${r.hacker}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
+     })();
+   </script>
++  <script src="/js/menu.js"></script>
+ </body>
+ </html>
++
