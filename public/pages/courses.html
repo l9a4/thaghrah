@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- نفس الـ <head> في index.html -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الدورات – thaghrah</title>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-  <video autoplay muted loop class="bg-video" aria-hidden="true">
-    <source src="/assets/cyber-bg.mp4" type="video/mp4" />
-  </video>
+  <!-- إزالة الفيديو الخلفي -->
   <header class="navbar">
-    <div class="logo" onclick="location.href='/pages/courses.html'">thaghrah</div>
+    <a href="/" class="logo">thaghrah</a>
     <nav class="nav-links">
-      <!-- روابط nav-links + Auth buttons -->
+      <a href="/pages/courses.html" class="active">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/login.html">تسجيل دخول</a>
+      <a href="/pages/register.html">إنشاء حساب</a>
+      <a href="?lang=en" class="lang-toggle">EN</a>
     </nav>
   </header>
 
-  <section class="courses-hero">
+  <main class="container">
     <h2>الدورات المتاحة</h2>
-    <p>تعلم Penetration Testing من الصفر حتى الاحتراف</p>
-    <button class="btn-primary" onclick="location.href='/pages/payment.html?item=course1'">
-      اشترِ الآن — 300 جنيه
-    </button>
-  </section>
+    <div class="course-cards">
+      <div class="course-card">
+        <h3>Penetration Testing للمبتدئين</h3>
+        <p>300 جنيه</p>
+        <button onclick="location.href='/pages/subscription.html?item=course1'" class="btn-primary">اشتري الآن</button>
+      </div>
+      <div class="course-card">
+        <h3>أساسيات الأمن السيبراني</h3>
+        <p>500 جنيه</p>
+        <button onclick="location.href='/pages/subscription.html?item=course2'" class="btn-primary">اشتري الآن</button>
+      </div>
+    </div>
+  </main>
 
-  <!-- Footer + Auth Modal + script كما في index.html -->
-  <script type="module" src="/js/app.js"></script>
+  <footer class="footer"><p>© 2025 thaghrah.</p></footer>
 </body>
 </html>

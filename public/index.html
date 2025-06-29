@@ -2,120 +2,76 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>thaghrah – أول منصة Bug Bounty عربية</title>
-  <meta name="description" content="منصة ثغرة لبرامج Bug Bounty تربط الباحثين الأمنيين بالشركات بسهولة وأمان." />
-  <meta name="keywords" content="Bug Bounty, ثغرة, Pentesting, أمان, منصّة عربية" />
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- تحسين تحميل الخط -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- PWA manifest -->
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#000000" />
-
-  <!-- الأنماط الرئيسية -->
   <link rel="stylesheet" href="/css/style.css" />
 </head>
-
 <body>
-  <!-- خلفية الفيديو -->
+  <!-- خلفية الفيديو تظهر هنا فقط -->
   <video autoplay muted loop class="bg-video" aria-hidden="true">
     <source src="/assets/cyber-bg.mp4" type="video/mp4" />
   </video>
 
-  <!-- شريط التنقل -->
-  <header class="navbar" role="navigation">
+  <!-- Navbar مع أيقونة هامبرغر -->
+  <header class="navbar">
+    <button id="hamburger" class="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
     <a href="/" class="logo">thaghrah</a>
-    <nav class="nav-links">
-      <a href="/pages/programs.html" aria-label="البرامج">Programs</a>
-      <a href="/pages/courses.html" aria-label="الدورات">Courses</a>
-      <a href="/pages/submit.html" aria-label="إرسال ثغرة">Submit Bug</a>
-      <a href="/pages/payment.html" aria-label="الدفع والسحب">Payments</a>
-      <a href="/pages/hacker-dashboard.html" aria-label="لوحة الهاكرز">Hackers</a>
-      <a href="/pages/company-dashboard.html" aria-label="لوحة الشركات">Companies</a>
-
-      <!-- روابط المصادقة -->
+    <nav id="navLinks" class="nav-links">
+      <!-- أزلنا Programs -->
+      <a href="/pages/courses.html">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/hacker-dashboard.html">Hackers</a>
+      <a href="/pages/company-dashboard.html">Companies</a>
       <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
       <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
-
-      <!-- تبديل اللغة -->
-      <a href="?lang=en" class="lang-toggle" aria-label="Switch to English">EN</a>
+      <a href="?lang=en" class="lang-toggle">EN</a>
     </nav>
   </header>
 
-  <!-- قسم الـ Hero -->
+  <!-- Hero -->
   <main class="hero">
-    <h1>
-      أول منصة <span class="gradient-text">Bug Bounty</span> عربية
-    </h1>
+    <h1>أول منصة <span class="gradient-text">Bug Bounty</span> عربية</h1>
     <p>ربط الباحثين الأمنيين مع الشركات بأحدث التقنيات</p>
     <a href="/pages/login.html" class="btn-primary">ابدأ الآن</a>
-
-    <!-- سهم للتمرير -->
-    <a href="#features" class="scroll-down" aria-label="Scroll Down">
-      &#x2193;
-    </a>
+    <a href="#features" class="scroll-down">&#x2193;</a>
   </main>
 
-  <!-- قسم المزايا -->
-  <section id="features" class="container features" role="region" aria-labelledby="features-heading">
-    <h2 id="features-heading">المزايا الرئيسية</h2>
+  <!-- Features -->
+  <section id="features" class="container features">
+    <h2>المزايا الرئيسية</h2>
     <div class="feature-cards">
-      <div class="card">
-        <img src="/assets/icon-ai.svg" alt="AI" loading="lazy" />
-        <h3>مساعد AI</h3>
-        <p>اقتراح CVSS وتوثيق CVE أوتوماتيكي</p>
-      </div>
-      <div class="card">
-        <img src="/assets/icon-collab.svg" alt="Collaboration" loading="lazy" />
-        <h3>تعاون فوري</h3>
-        <p>Real-Time Collaboration بتقنية WebSocket</p>
-      </div>
-      <div class="card">
-        <img src="/assets/icon-play.svg" alt="Playground" loading="lazy" />
-        <h3>Playground آمن</h3>
-        <p>جرب الأكواد داخل بيئة معزولة</p>
-      </div>
-      <div class="card">
-        <img src="/assets/icon-pwa.svg" alt="PWA" loading="lazy" />
-        <h3>تطبيق PWA</h3>
-        <p>قم بتثبيت المنصة كتطبيق مستقل</p>
-      </div>
+      <div class="card"><img src="/assets/icon-ai.svg" alt="AI"><h3>مساعد AI</h3><p>اقتراح CVSS وتوثيق CVE أوتوماتيكي</p></div>
+      <div class="card"><img src="/assets/icon-collab.svg" alt="Collab"><h3>تعاون فوري</h3><p>Real-Time Collaboration بتقنية WebSocket</p></div>
+      <div class="card"><img src="/assets/icon-play.svg" alt="Playground"><h3>Playground آمن</h3><p>جرب الأكواد داخل بيئة معزولة</p></div>
+      <div class="card"><img src="/assets/icon-pwa.svg" alt="PWA"><h3>تطبيق PWA</h3><p>قم بتثبيت المنصة كتطبيق مستقل</p></div>
     </div>
   </section>
 
-  <!-- قسم شهادات المستخدمين -->
-  <section class="testimonials container" role="region" aria-labelledby="testimonials-heading">
-    <h2 id="testimonials-heading">آراء المستخدمين</h2>
+  <!-- Testimonials -->
+  <section class="testimonials container">
+    <h2>آراء المستخدمين</h2>
     <div class="testimonial-cards">
-      <div class="testimonial-card">
-        <p>"ثغرة غيرت مفهوم الأمان في شركتنا، وساعدتنا على اكتشاف الثغرات بسرعة!"</p>
-        <cite>– أحمد علي، CTO</cite>
-      </div>
-      <div class="testimonial-card">
-        <p>"واجهة رائعة وسهلة الاستخدام، وغيرت طريقة تعاملي مع Pentesting."</p>
-        <cite>– محمد سعيد، باونتي هنتر</cite>
-      </div>
+      <div class="testimonial-card"><p>"ثغرة غيرت مفهوم الأمان في شركتنا!"</p><cite>– أحمد علي، CTO</cite></div>
+      <div class="testimonial-card"><p>"واجهة رائعة وسهلة الاستخدام."</p><cite>– محمد سعيد، Hunter</cite></div>
     </div>
   </section>
 
-  <!-- دعوة ثانية للتسجيل -->
+  <!-- CTA ثاني -->
   <section class="cta-secondary container">
     <h2>هل أنت مستعد لرفع مستوى أمانك؟</h2>
     <a href="/pages/register.html" class="btn-primary">سجّل الآن مجاناً</a>
   </section>
 
-  <!-- الفوتر -->
-  <footer class="footer">
-    <p>© 2025 thaghrah. جميع الحقوق محفوظة.</p>
-  </footer>
+  <!-- Footer -->
+  <footer class="footer"><p>© 2025 thaghrah. جميع الحقوق محفوظة.</p></footer>
+
+  <script>
+    // تفعيل قائمة الموبايل
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
