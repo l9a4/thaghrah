@@ -1,7 +1,7 @@
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('thaghrah-v5').then(cache =>
+    caches.open('thaghrah-v6').then(cache =>
       cache.addAll([
         '/',
         '/css/style.css',
@@ -13,6 +13,7 @@ self.addEventListener('install', event => {
         '/js/header.js',
         '/js/faq.js',
         '/js/draft.js',
+        '/js/scroll-reveal.js',
         '/assets/cyber-bg.mp4',
         '/manifest.json',
         '/robots.txt',
@@ -22,7 +23,7 @@ self.addEventListener('install', event => {
   );
 });
 self.addEventListener('activate', event => {
-  const current = 'thaghrah-v5';
+  const current = 'thaghrah-v6';
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== current).map(k => caches.delete(k)))

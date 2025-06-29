@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('submit-form');
   const programSelect = document.getElementById('program-select');
   const msg = document.getElementById('submitMsg');
+  const desc = form ? form.querySelector('textarea[name="description"]') : null;
+  const counter = document.getElementById('descCount');
 
   const getCookie = name => {
     const m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
@@ -26,6 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   if (form) {
+    if (desc && counter) {
+      const update = () => {
+        counter.textContent = desc.value.length + '/1000';
+      };
+      desc.addEventListener('input', update);
+      update();
+    }
     form.addEventListener('submit', async e => {
       e.preventDefault();
       if (msg) msg.hidden = true;

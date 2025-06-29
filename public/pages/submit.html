@@ -27,9 +27,9 @@
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
-  <main class="container">
+  <main class="container reveal">
     <h2>إرسال تقرير ثغرة</h2>
-    <div class="report-card">
+    <div class="report-card reveal">
       <form id="submit-form" class="auth-form" enctype="multipart/form-data">
         <div class="form-group">
           <select id="program-select" name="program" required aria-label="Program">
@@ -44,6 +44,7 @@
         <div class="form-group">
           <textarea name="description" placeholder=" " rows="4" required aria-label="الوصف"></textarea>
           <label>الوصف</label>
+          <span id="descCount" class="count"></span>
         </div>
         <div class="form-group">
           <input type="file" name="files" id="files" multiple aria-label="ملفات داعمة"/>
@@ -53,7 +54,7 @@
       </form>
       <p id="submitMsg" class="error" hidden></p>
     </div>
-    <section class="faq">
+    <section class="faq reveal">
       <h3>الأسئلة الشائعة</h3>
       <div class="faq-item">
         <button aria-expanded="false">كيف أختار البرنامج؟</button>
@@ -73,6 +74,7 @@
   <script src="/js/faq.js"></script>
   <script src="/js/draft.js"></script>
   <script src="/js/submit.js"></script>
+  <script src="/js/scroll-reveal.js"></script>
   <script src="/js/sw-register.js"></script>
 </body>
 </html>

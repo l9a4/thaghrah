@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/css/style.css"/>
   <title>لوحة الشركة – thaghrah</title>
 </head>
-<body>
+<body class="reveal">
   <header class="navbar">
     <a href="/" class="logo">thaghrah</a>
     <nav class="nav-links">
@@ -23,7 +23,7 @@
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
-  <div class="container">
+  <div class="container reveal">
     <h2>لوحة التحكم – شركة</h2>
     <h3>برامجك</h3>
     <div id="company-programs" class="feature-cards"></div>
@@ -33,6 +33,7 @@
   <script src="/js/theme.js"></script>
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
+  <script src="/js/scroll-reveal.js"></script>
   <script>
     (async()=>{
       const [pRes,rRes]=await Promise.all([
