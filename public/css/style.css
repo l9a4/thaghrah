@@ -150,3 +150,15 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 .error{color:#f66;margin-top:.5rem;font-size:.9rem;}
 .success{color:#6f6;margin-top:.5rem;font-size:.9rem;}
 
+/* FAQ */
+.faq{max-width:600px;margin:2rem auto;}
+.faq-item{border-bottom:1px solid var(--card-border);}
+.faq-item button{width:100%;padding:1rem;background:none;border:none;color:var(--text-color);text-align:right;font-size:1rem;font-weight:600;cursor:pointer;}
+.faq-item p{padding:1rem;background:var(--card-bg);border-top:1px solid var(--card-border);}
+
+/* Back to Top */
+#backToTop{position:fixed;right:1rem;bottom:1rem;background:var(--card-bg);border:1px solid var(--card-border);border-radius:50%;padding:.5rem;font-size:1.2rem;color:var(--text-color);text-decoration:none;display:none;}
+
+/* Header scroll */
+.navbar.scrolled{padding:.5rem;background:rgba(0,0,0,0.9);}
+
