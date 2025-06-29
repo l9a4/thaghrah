@@ -2,6 +2,7 @@ const toggle = document.getElementById('themeToggle');
 const apply = mode => {
   document.body.classList.toggle('light', mode === 'light');
   localStorage.setItem('theme', mode);
+  if (toggle) toggle.setAttribute('aria-pressed', mode === 'light');
 };
 const stored = localStorage.getItem('theme');
 const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;

@@ -3,11 +3,13 @@ const links = document.getElementById('navLinks');
 if(menuBtn && links){
   menuBtn.addEventListener('click', e => {
     e.stopPropagation();
-    links.classList.toggle('open');
+    const open = links.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
   });
   document.addEventListener('click', e => {
-    if(links.classList.contains('open') && !links.contains(e.target)){
+    if(links.classList.contains('open') && !links.contains(e.target) && e.target !== menuBtn){
       links.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
     }
   });
 }
