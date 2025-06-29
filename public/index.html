@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="thaghrah - منصة عربية حديثة لبرامج مكافآت الأخطاء"/>
   <title>thaghrah – أول منصة Bug Bounty عربية</title>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -27,6 +28,7 @@
       <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
       <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
       <a href="?lang=en" class="lang-toggle">EN</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
 
@@ -67,6 +69,7 @@
   <!-- Footer -->
   <footer class="footer"><p>© 2025 thaghrah. جميع الحقوق محفوظة.</p></footer>
 
+  <script src="/js/theme.js"></script>
   <script>
     // تفعيل قائمة الموبايل
     document.getElementById('hamburger').addEventListener('click', () => {
