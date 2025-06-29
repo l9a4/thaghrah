@@ -151,6 +151,11 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 .success{color:#6f6;margin-top:.5rem;font-size:.9rem;}
 .count{display:block;text-align:left;font-size:.8rem;opacity:.7;}
 
+/* Password field */
+.password-field{position:relative;}
+.password-field input{padding-right:2.5rem;}
+.toggle-pass{position:absolute;top:50%;right:.5rem;transform:translateY(-50%);background:none;border:none;color:var(--text-color);cursor:pointer;}
+
 /* FAQ */
 .faq{max-width:600px;margin:2rem auto;}
 .faq-item{border-bottom:1px solid var(--card-border);}

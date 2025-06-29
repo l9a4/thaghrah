@@ -17,8 +17,11 @@
   <div class="auth-card reveal">
     <h2>تسجيل دخول</h2>
     <form action="/auth/login" method="POST" class="auth-form">
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required/>
-      <input type="password" name="password" placeholder="كلمة المرور" required/>
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required autofocus/>
+      <div class="password-field">
+        <input type="password" name="password" placeholder="كلمة المرور" required/>
+        <button type="button" class="toggle-pass" aria-label="إظهار كلمة المرور">👁️</button>
+      </div>
       <button type="submit" class="btn-primary">دخول</button>
     </form>
     <p id="authError" class="error" hidden></p>
@@ -34,6 +37,7 @@
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
   <script src="/js/auth-form.js"></script>
+  <script src="/js/password-toggle.js"></script>
   <script src="/js/scroll-reveal.js"></script>
   <script src="/js/sw-register.js"></script>
   <a href="#" id="backToTop" aria-label="Back to top">↑</a>
