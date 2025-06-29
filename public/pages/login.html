@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="تسجيل دخول لمنصة thaghrah"/>
   <title>تسجيل دخول – thaghrah</title>
   <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body class="auth-page">
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
   <div class="auth-card">
     <h2>تسجيل دخول</h2>
     <form action="/auth/login" method="POST" class="auth-form">
@@ -14,13 +16,17 @@
       <input type="password" name="password" placeholder="كلمة المرور" required/>
       <button type="submit" class="btn-primary">دخول</button>
     </form>
-    <div class="social-wrap">
+    <p id="authError" class="error" hidden></p>
+  <div class="social-wrap">
       <a href="/auth/google"   class="btn-social google">Google</a>
       <a href="/auth/facebook" class="btn-social facebook">Facebook</a>
       <a href="/auth/github"   class="btn-social github">GitHub</a>
       <a href="/auth/apple"    class="btn-social apple">Apple</a>
-    </div>
-    <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
   </div>
+  <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
+  </div>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/auth-form.js"></script>
 </body>
 </html>

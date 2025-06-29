@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="thaghrah - منصة عربية حديثة لبرامج مكافآت الأخطاء"/>
+  <meta property="og:title" content="thaghrah"/>
+  <meta property="og:description" content="منصة عربية لبرامج مكافآت الثغرات"/>
+  <meta property="og:image" content="/assets/og-image.png"/>
   <title>thaghrah – أول منصة Bug Bounty عربية</title>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -27,6 +31,7 @@
       <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
       <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
       <a href="?lang=en" class="lang-toggle">EN</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
 
@@ -49,6 +54,17 @@
     </div>
   </section>
 
+  <!-- How It Works -->
+  <section class="container how-it-works">
+    <h2>كيف نعمل؟</h2>
+    <ol>
+      <li>إنشئ حسابك</li>
+      <li>اختر البرنامج المناسب</li>
+      <li>قدّم تقريرك الأمني</li>
+      <li>استلم مكافأتك</li>
+    </ol>
+  </section>
+
   <!-- Testimonials -->
   <section class="testimonials container">
     <h2>آراء المستخدمين</h2>
@@ -67,11 +83,7 @@
   <!-- Footer -->
   <footer class="footer"><p>© 2025 thaghrah. جميع الحقوق محفوظة.</p></footer>
 
-  <script>
-    // تفعيل قائمة الموبايل
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
 </body>
 </html>

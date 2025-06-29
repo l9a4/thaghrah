@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>…</head>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="لوحة تحكم الباحثين في thaghrah"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <title>لوحة الباحث – thaghrah</title>
+</head>
 <body>
-  <header class="navbar">…</header>
+  <header class="navbar">
+    <a href="/" class="logo">thaghrah</a>
+    <nav class="nav-links">
+      <a href="/pages/courses.html">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/hacker-dashboard.html" class="active">Hackers</a>
+      <a href="/pages/company-dashboard.html">Companies</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
   <div class="container">
     <h2>لوحة التحكم – باحث</h2>
     <div id="stats" class="feature-cards"></div>
     <h3>تقاريرك الأخيرة</h3>
     <table id="reports-table" class="report-table"></table>
   </div>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
   <script>
     (async () => {
       const res = await fetch('/api/hacker/reports');
@@ -22,14 +39,9 @@
         sc.appendChild(card);
       });
       const tbl = document.getElementById('reports-table');
-      tbl.innerHTML = `<thead><tr><th>العنوان</th><th>التاريخ</th><th>الحالة</th><th>المكافأة</th></tr></thead>
-        <tbody>${reports.map(r=>`
-          <tr>
-            <td>${r.title}</td>
-            <td>${new Date(r.createdAt).toLocaleDateString()}</td>
-            <td>${r.status}</td>
-            <td>${r.reward}</td>
-          </tr>`).join('')}</tbody>`;
+      tbl.innerHTML = `<thead><tr><th>العنوان</th><th>التاريخ</th><th>الحالة</th><th>المكافأة</th></tr></thead>`+
+        `<tbody>${reports.map(r=>`+
+          `<tr><td>${r.title}</td><td>${new Date(r.createdAt).toLocaleDateString()}</td><td>${r.status}</td><td>${r.reward}</td></tr>`).join('')}</tbody>`;
     })();
   </script>
 </body>
