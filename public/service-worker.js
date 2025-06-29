@@ -1,9 +1,27 @@
-service-worker.js
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('thaghrah-v1').then(cache =>
-      cache.addAll(['/', '/css/style.css', '/assets/cyber-bg.mp4'])
+    caches.open('thaghrah-v2').then(cache =>
+      cache.addAll([
+        '/',
+        '/css/style.css',
+        '/js/theme.js',
+        '/js/menu.js',
+        '/js/auth-form.js',
+        '/js/sw-register.js',
+        '/assets/cyber-bg.mp4',
+        '/manifest.json',
+        '/robots.txt',
+        '/sitemap.xml'
+      ])
+    )
+  );
+});
+self.addEventListener('activate', event => {
+  const current = 'thaghrah-v2';
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== current).map(k => caches.delete(k)))
     )
   );
 });
