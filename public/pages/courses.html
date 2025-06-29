@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="دورات الأمن السيبراني على منصة thaghrah"/>
+  <meta property="og:title" content="الدورات – thaghrah"/>
+  <meta property="og:description" content="تعلم أحدث مهارات الأمن السيبراني"/>
+  <meta property="og:image" content="/assets/og-image.png"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#000000"/>
   <title>الدورات – thaghrah</title>
   <link rel="stylesheet" href="/css/style.css"/>
 </head>
@@ -16,6 +22,7 @@
       <a href="/pages/login.html">تسجيل دخول</a>
       <a href="/pages/register.html">إنشاء حساب</a>
       <a href="?lang=en" class="lang-toggle">EN</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
 
@@ -36,5 +43,10 @@
   </main>
 
   <footer class="footer"><p>© 2025 thaghrah.</p></footer>
+  <a href="#" id="backToTop" aria-label="Back to top">↑</a>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/sw-register.js"></script>
 </body>
 </html>

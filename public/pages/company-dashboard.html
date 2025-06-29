@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>…</head>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="لوحة تحكم الشركات في thaghrah"/>
+  <meta property="og:title" content="لوحة الشركة – thaghrah"/>
+  <meta property="og:description" content="إدارة برامجك وتقاريرك الأمنية"/>
+  <meta property="og:image" content="/assets/og-image.png"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#000000"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <title>لوحة الشركة – thaghrah</title>
+</head>
 <body>
-  <header class="navbar">…</header>
+  <header class="navbar">
+    <a href="/" class="logo">thaghrah</a>
+    <nav class="nav-links">
+      <a href="/pages/courses.html">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/hacker-dashboard.html">Hackers</a>
+      <a href="/pages/company-dashboard.html" class="active">Companies</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
   <div class="container">
     <h2>لوحة التحكم – شركة</h2>
     <h3>برامجك</h3>
@@ -10,6 +30,9 @@
     <h3>التقارير الواردة</h3>
     <table id="company-reports" class="report-table"></table>
   </div>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/header.js"></script>
   <script>
     (async()=>{
       const [pRes,rRes]=await Promise.all([
@@ -27,10 +50,12 @@
         cp.appendChild(c);
       });
       const cr=document.getElementById('company-reports');
-      cr.innerHTML=`<thead><tr><th>العنوان</th><th>الباحث</th><th>الحالة</th></tr></thead>
-        <tbody>${reports.map(r=>`
-          <tr><td>${r.title}</td><td>${r.hacker}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
+      cr.innerHTML=`<thead><tr><th>العنوان</th><th>الباحث</th><th>الحالة</th></tr></thead>`+
+        `<tbody>${reports.map(r=>`+
+          `<tr><td>${r.title}</td><td>${r.hacker}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
     })();
   </script>
+  <script src="/js/sw-register.js"></script>
+  <a href="#" id="backToTop" aria-label="Back to top">↑</a>
 </body>
 </html>
