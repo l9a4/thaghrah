@@ -148,7 +148,6 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 
 /* Error message */
 .error{color:#f66;margin-top:.5rem;font-size:.9rem;}
-<<<<<<< HEAD
 .success{color:#6f6;margin-top:.5rem;font-size:.9rem;}
 .count{display:block;text-align:left;font-size:.8rem;opacity:.7;}
 
@@ -173,6 +172,4 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 /* Scroll reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
-=======
 
->>>>>>> 0b138ea488091ac33686512198db1e2647a9691e
