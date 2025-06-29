@@ -1,69 +1,78 @@
- <header class="navbar">
-     <button id="hamburger" class="mobile-menu">
-       <span></span><span></span><span></span>
-     </button>
-     <a href="/" class="logo">thaghrah</a>
-     <nav id="navLinks" class="nav-links">
-       <!-- أزلنا Programs -->
-       <a href="/pages/courses.html">Courses</a>
-       <a href="/pages/submit.html">Submit Bug</a>
-       <a href="/pages/hacker-dashboard.html">Hackers</a>
-       <a href="/pages/company-dashboard.html">Companies</a>
-       <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
-       <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
-       <a href="?lang=en" class="lang-toggle">EN</a>
-     </nav>
-   </header>
- 
-   <!-- Hero -->
-   <main class="hero">
-     <h1>أول منصة <span class="gradient-text">Bug Bounty</span> عربية</h1>
-     <p>ربط الباحثين الأمنيين مع الشركات بأحدث التقنيات</p>
-     <a href="/pages/login.html" class="btn-primary">ابدأ الآن</a>
-     <a href="#features" class="scroll-down">&#x2193;</a>
-   </main>
- 
-+  <!-- About section -->
-+  <section id="about" class="container about">
-+    <h2>منصة للباحثين والشركات</h2>
-+    <p>thaghrah تجمع خبراء الأمن السيبراني مع المؤسسات لتسهيل اكتشاف الثغرات ومعالجتها بسرعة وفعالية.</p>
-+  </section>
-+
-   <!-- Features -->
-   <section id="features" class="container features">
-     <h2>المزايا الرئيسية</h2>
-     <div class="feature-cards">
-       <div class="card"><img src="/assets/icon-ai.svg" alt="AI"><h3>مساعد AI</h3><p>اقتراح CVSS وتوثيق CVE أوتوماتيكي</p></div>
-       <div class="card"><img src="/assets/icon-collab.svg" alt="Collab"><h3>تعاون فوري</h3><p>Real-Time Collaboration بتقنية WebSocket</p></div>
-       <div class="card"><img src="/assets/icon-play.svg" alt="Playground"><h3>Playground آمن</h3><p>جرب الأكواد داخل بيئة معزولة</p></div>
-       <div class="card"><img src="/assets/icon-pwa.svg" alt="PWA"><h3>تطبيق PWA</h3><p>قم بتثبيت المنصة كتطبيق مستقل</p></div>
-     </div>
-   </section>
- 
-   <!-- Testimonials -->
-   <section class="testimonials container">
-     <h2>آراء المستخدمين</h2>
-     <div class="testimonial-cards">
-       <div class="testimonial-card"><p>"ثغرة غيرت مفهوم الأمان في شركتنا!"</p><cite>– أحمد علي، CTO</cite></div>
-       <div class="testimonial-card"><p>"واجهة رائعة وسهلة الاستخدام."</p><cite>– محمد سعيد، Hunter</cite></div>
-     </div>
-   </section>
- 
-   <!-- CTA ثاني -->
-   <section class="cta-secondary container">
-     <h2>هل أنت مستعد لرفع مستوى أمانك؟</h2>
-     <a href="/pages/register.html" class="btn-primary">سجّل الآن مجاناً</a>
-   </section>
- 
-   <!-- Footer -->
-   <footer class="footer"><p>© 2025 thaghrah. جميع الحقوق محفوظة.</p></footer>
- 
--  <script>
--    // تفعيل قائمة الموبايل
--    document.getElementById('hamburger').addEventListener('click', () => {
--      document.getElementById('navLinks').classList.toggle('open');
--    });
--  </script>
-+  <script src="/js/menu.js"></script>
- </body>
- </html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>thaghrah – أول منصة Bug Bounty عربية</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- خلفية الفيديو تظهر هنا فقط -->
+  <video autoplay muted loop class="bg-video" aria-hidden="true">
+    <source src="/assets/cyber-bg.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Navbar مع أيقونة هامبرغر -->
+  <header class="navbar">
+    <button id="hamburger" class="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/" class="logo">thaghrah</a>
+    <nav id="navLinks" class="nav-links">
+      <!-- أزلنا Programs -->
+      <a href="/pages/courses.html">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/hacker-dashboard.html">Hackers</a>
+      <a href="/pages/company-dashboard.html">Companies</a>
+      <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
+      <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
+      <a href="?lang=en" class="lang-toggle">EN</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero">
+    <h1>أول منصة <span class="gradient-text">Bug Bounty</span> عربية</h1>
+    <p>ربط الباحثين الأمنيين مع الشركات بأحدث التقنيات</p>
+    <a href="/pages/login.html" class="btn-primary">ابدأ الآن</a>
+  <a href="#features" class="scroll-down">&#x2193;</a>
+</main>
+
+  <!-- About section -->
+  <section id="about" class="container about">
+    <h2>منصة للباحثين والشركات</h2>
+    <p>thaghrah تجمع خبراء الأمن السيبراني مع المؤسسات لتسهيل اكتشاف الثغرات ومعالجتها بسرعة وفعالية.</p>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="container features">
+    <h2>المزايا الرئيسية</h2>
+    <div class="feature-cards">
+      <div class="card"><img src="/assets/icon-ai.svg" alt="AI"><h3>مساعد AI</h3><p>اقتراح CVSS وتوثيق CVE أوتوماتيكي</p></div>
+      <div class="card"><img src="/assets/icon-collab.svg" alt="Collab"><h3>تعاون فوري</h3><p>Real-Time Collaboration بتقنية WebSocket</p></div>
+      <div class="card"><img src="/assets/icon-play.svg" alt="Playground"><h3>Playground آمن</h3><p>جرب الأكواد داخل بيئة معزولة</p></div>
+      <div class="card"><img src="/assets/icon-pwa.svg" alt="PWA"><h3>تطبيق PWA</h3><p>قم بتثبيت المنصة كتطبيق مستقل</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials container">
+    <h2>آراء المستخدمين</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card"><p>"ثغرة غيرت مفهوم الأمان في شركتنا!"</p><cite>– أحمد علي، CTO</cite></div>
+      <div class="testimonial-card"><p>"واجهة رائعة وسهلة الاستخدام."</p><cite>– محمد سعيد، Hunter</cite></div>
+    </div>
+  </section>
+
+  <!-- CTA ثاني -->
+  <section class="cta-secondary container">
+    <h2>هل أنت مستعد لرفع مستوى أمانك؟</h2>
+    <a href="/pages/register.html" class="btn-primary">سجّل الآن مجاناً</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer"><p>© 2025 thaghrah. جميع الحقوق محفوظة.</p></footer>
+
+  <script src="/js/menu.js"></script>
+</body>
+</html>
