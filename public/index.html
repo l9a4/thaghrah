@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="thaghrah - منصة عربية حديثة لبرامج مكافآت الأخطاء"/>
+  <meta property="og:title" content="thaghrah"/>
+  <meta property="og:description" content="منصة عربية لبرامج مكافآت الثغرات"/>
+  <meta property="og:image" content="/assets/og-image.png"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#000000"/>
   <title>thaghrah – أول منصة Bug Bounty عربية</title>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -14,7 +20,7 @@
 
   <!-- Navbar مع أيقونة هامبرغر -->
   <header class="navbar">
-    <button id="hamburger" class="mobile-menu">
+    <button id="hamburger" class="mobile-menu" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <a href="/" class="logo">thaghrah</a>
@@ -27,11 +33,12 @@
       <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
       <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
       <a href="?lang=en" class="lang-toggle">EN</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
 
   <!-- Hero -->
-  <main class="hero">
+  <main class="hero reveal">
     <h1>أول منصة <span class="gradient-text">Bug Bounty</span> عربية</h1>
     <p>ربط الباحثين الأمنيين مع الشركات بأحدث التقنيات</p>
     <a href="/pages/login.html" class="btn-primary">ابدأ الآن</a>
@@ -39,18 +46,29 @@
   </main>
 
   <!-- Features -->
-  <section id="features" class="container features">
+  <section id="features" class="container features reveal">
     <h2>المزايا الرئيسية</h2>
     <div class="feature-cards">
-      <div class="card"><img src="/assets/icon-ai.svg" alt="AI"><h3>مساعد AI</h3><p>اقتراح CVSS وتوثيق CVE أوتوماتيكي</p></div>
-      <div class="card"><img src="/assets/icon-collab.svg" alt="Collab"><h3>تعاون فوري</h3><p>Real-Time Collaboration بتقنية WebSocket</p></div>
-      <div class="card"><img src="/assets/icon-play.svg" alt="Playground"><h3>Playground آمن</h3><p>جرب الأكواد داخل بيئة معزولة</p></div>
-      <div class="card"><img src="/assets/icon-pwa.svg" alt="PWA"><h3>تطبيق PWA</h3><p>قم بتثبيت المنصة كتطبيق مستقل</p></div>
+      <div class="card"><img src="/assets/icon-ai.svg" alt="AI" loading="lazy"><h3>مساعد AI</h3><p>اقتراح CVSS وتوثيق CVE أوتوماتيكي</p></div>
+      <div class="card"><img src="/assets/icon-collab.svg" alt="Collab" loading="lazy"><h3>تعاون فوري</h3><p>Real-Time Collaboration بتقنية WebSocket</p></div>
+      <div class="card"><img src="/assets/icon-play.svg" alt="Playground" loading="lazy"><h3>Playground آمن</h3><p>جرب الأكواد داخل بيئة معزولة</p></div>
+      <div class="card"><img src="/assets/icon-pwa.svg" alt="PWA" loading="lazy"><h3>تطبيق PWA</h3><p>قم بتثبيت المنصة كتطبيق مستقل</p></div>
     </div>
   </section>
 
+  <!-- How It Works -->
+  <section class="container how-it-works reveal">
+    <h2>كيف نعمل؟</h2>
+    <ol>
+      <li>إنشئ حسابك</li>
+      <li>اختر البرنامج المناسب</li>
+      <li>قدّم تقريرك الأمني</li>
+      <li>استلم مكافأتك</li>
+    </ol>
+  </section>
+
   <!-- Testimonials -->
-  <section class="testimonials container">
+  <section class="testimonials container reveal">
     <h2>آراء المستخدمين</h2>
     <div class="testimonial-cards">
       <div class="testimonial-card"><p>"ثغرة غيرت مفهوم الأمان في شركتنا!"</p><cite>– أحمد علي، CTO</cite></div>
@@ -66,12 +84,12 @@
 
   <!-- Footer -->
   <footer class="footer"><p>© 2025 thaghrah. جميع الحقوق محفوظة.</p></footer>
+  <a href="#" id="backToTop" aria-label="Back to top">↑</a>
 
-  <script>
-    // تفعيل قائمة الموبايل
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/scroll-reveal.js"></script>
+  <script src="/js/sw-register.js"></script>
 </body>
 </html>

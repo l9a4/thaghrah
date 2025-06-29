@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/pages/courses.html</loc></url>
+  <url><loc>/pages/login.html</loc></url>
+  <url><loc>/pages/register.html</loc></url>
+  <url><loc>/pages/payment.html</loc></url>
+  <url><loc>/pages/submit.html</loc></url>
+  <url><loc>/pages/programs.html</loc></url>
+  <url><loc>/pages/company-dashboard.html</loc></url>
+  <url><loc>/pages/hacker-dashboard.html</loc></url>
+</urlset>
