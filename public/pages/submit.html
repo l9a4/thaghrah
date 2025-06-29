@@ -6,6 +6,7 @@
   <meta name="description" content="أرسل تقارير الثغرات عبر منصة thaghrah"/>
   <meta property="og:title" content="تقديم بلاغ – thaghrah"/>
   <meta property="og:description" content="ساهم في تحسين الأمان بإرسال تقرير ثغرة"/>
+  <meta property="og:image" content="/assets/report-bg.jpg"/>
   <link rel="manifest" href="/manifest.json"/>
   <meta name="theme-color" content="#000000"/>
   <title>تقديم بلاغ – thaghrah</title>
@@ -77,54 +78,3 @@
   <script src="/js/sw-register.js"></script>
 </body>
 </html>
-<form id="submit-form">
-  <div class="form-group">
-    <select id="program-select" name="program" required>
-      <option value="" disabled selected hidden>اختر البرنامج</option>
-    </select>
-    <label>البرنامج</label>
-  </div>
-  <div class="form-group">
-    <input type="text" name="title" placeholder=" " required/>
-    <label>عنوان التقرير</label>
-  </div>
-  <div class="form-group">
-    <textarea name="description" placeholder=" " rows="4" required></textarea>
-    <label>الوصف</label>
-  </div>
-  <button type="submit" class="btn btn-primary">أرسل التقرير</button>
-</form>
-
-<script>
-  (async () => {
-    // ملء قائمة البرامج
-    const res = await fetch('/api/programs');
-    const { programs } = await res.json();
-    const sel = document.getElementById('program-select');
-    programs.forEach(p => {
-      const opt = document.createElement('option');
-      opt.value = p.id; opt.textContent = p.name;
-      sel.appendChild(opt);
-    });
-  })();
-
-  document.getElementById('submit-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
-    const res = await fetch('/api/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    const json = await res.json();
-    if (json.success) {
-      alert('تم إرسال التقرير بنجاح!');
-      e.target.reset();
-    } else {
-      alert('خطأ أثناء الإرسال.');
-    }
-  });
-</script>
-<script src="/js/theme.js"></script>
-<script src="/js/menu.js"></script>
-<script src="/js/sw-register.js"></script>
