@@ -3,12 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const programSelect = document.getElementById('program-select');
   const msg = document.getElementById('submitMsg');
 
+  const getCookie = name => {
+    const m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+    return m ? decodeURIComponent(m[1]) : '';
+  };
+
   fetch('/api/programs')
     .then(r => r.json())
     .then(({ programs }) => {
       programs.forEach(p => {
         const opt = document.createElement('option');
-        opt.value = p.id;
+        opt.value = p._id;
         opt.textContent = p.name;
         programSelect.appendChild(opt);
       });
@@ -26,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (msg) msg.hidden = true;
       const data = new FormData(form);
       try {
-        const res = await fetch('/api/submit', {
+        const res = await fetch('/api/reports', {
           method: 'POST',
           body: data,
+          headers: { 'CSRF-Token': getCookie('XSRF-TOKEN') }
         });
         const result = await res.json();
         if (res.ok && result.success) {

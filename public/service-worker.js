@@ -1,7 +1,7 @@
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('thaghrah-v4').then(cache =>
+    caches.open('thaghrah-v5').then(cache =>
       cache.addAll([
         '/',
         '/css/style.css',
@@ -22,7 +22,7 @@ self.addEventListener('install', event => {
   );
 });
 self.addEventListener('activate', event => {
-  const current = 'thaghrah-v4';
+  const current = 'thaghrah-v5';
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== current).map(k => caches.delete(k)))

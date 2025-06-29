@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   form.addEventListener('submit',async e=>{
     e.preventDefault();
     const data=new FormData(form);
+    const token=document.cookie.match('(?:^|; )XSRF-TOKEN=([^;]*)');
     try{
-      const res=await fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(data)),credentials:'include'});
+      const res=await fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json','CSRF-Token':token?decodeURIComponent(token[1]):''},body:JSON.stringify(Object.fromEntries(data)),credentials:'include'});
       const result=await res.json();
       if(res.ok&&result.success){
         location.href='/';
