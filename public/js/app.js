@@ -1,13 +1,16 @@
-// فتح/إغلاق المودال وتنفيذ تسجيل دخول/تسجيل جديد
+// public/js/app.js
+
 window.openAuth = mode => {
   const modal = document.getElementById('authModal');
   modal.hidden = false;
   document.getElementById('auth-heading').textContent =
     mode === 'login' ? 'تسجيل دخول' : 'إنشاء حساب';
+  
   document.getElementById('authForm').onsubmit = async e => {
     e.preventDefault();
-    const email = document.getElementById('authEmail').value;
+    const email = document.getElementById('authEmail').value.trim();
     const pass  = document.getElementById('authPass').value;
+    
     try {
       const res = await fetch(`/auth/${mode}`, {
         method: 'POST',
@@ -15,15 +18,26 @@ window.openAuth = mode => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password: pass })
       });
-      if (!res.ok) throw new Error();
-      location.reload();
-    } catch {
+      const data = await res.json();
+      
+      if (res.ok && data.success) {
+        // بعد تسجيل الدخول الناجح
+        modal.hidden = true;
+        // توجه لصفحة المخترقين
+        window.location.href = '/pages/hacker-dashboard.html';
+      } else {
+        alert(data.message || 'فشل تسجيل الدخول');
+      }
+    } catch (err) {
+      console.error(err);
       alert('حدث خطأ، حاول مرة أخرى');
     }
   };
 };
 
-window.closeAuth = () => document.getElementById('authModal').hidden = true;
+window.closeAuth = () => {
+  document.getElementById('authModal').hidden = true;
+};
 
 window.switchAuth = mode => {
   document.getElementById('auth-heading').textContent =
