@@ -27,6 +27,8 @@
       <a href="/pages/login.html" class="btn-auth">تسجيل دخول</a>
       <a href="/pages/register.html" class="btn-auth">إنشاء حساب</a>
       <a href="?lang=en" class="lang-toggle">EN</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+      <button id="installBtn" hidden>Install App</button>
     </nav>
   </header>
 
@@ -73,5 +75,7 @@
       document.getElementById('navLinks').classList.toggle('open');
     });
   </script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/pwa.js"></script>
 </body>
 </html>

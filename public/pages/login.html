@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body class="auth-page">
+  <div class="top-actions">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    <button id="installBtn" hidden>Install App</button>
+  </div>
   <div class="auth-card">
     <h2>تسجيل دخول</h2>
     <form action="/auth/login" method="POST" class="auth-form">
@@ -22,5 +26,7 @@
     </div>
     <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
   </div>
+  <script src="/js/theme.js"></script>
+  <script src="/js/pwa.js"></script>
 </body>
 </html>
