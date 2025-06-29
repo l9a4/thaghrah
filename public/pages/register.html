@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="إنشاء حساب جديد في منصة thaghrah"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#000000"/>
   <title>إنشاء حساب – thaghrah</title>
   <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body class="auth-page">
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
   <div class="auth-card">
     <h2>إنشاء حساب</h2>
-    <form action="/auth/register" method="POST">
+    <form action="/auth/register" method="POST" class="auth-form">
       <div class="form-group">
         <input type="email"    name="email"    placeholder=" " required/>
         <label>البريد الإلكتروني</label>
@@ -28,6 +32,7 @@
       </div>
       <button type="submit" class="btn-primary">سجّل</button>
     </form>
+    <p id="authError" class="error" hidden></p>
     <div class="social-wrap">
       <a href="/auth/google"  class="social-btn google">Google</a>
       <a href="/auth/facebook"class="social-btn facebook">Facebook</a>
@@ -36,5 +41,9 @@
     </div>
     <p>لديك حساب؟ <a href="login.html">تسجيل دخول</a></p>
   </div>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/auth-form.js"></script>
+  <script src="/js/sw-register.js"></script>
 </body>
 </html>
