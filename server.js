@@ -10,11 +10,14 @@ const xss = require('xss-clean');
 const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const session = require('express-session');
+const passport = require('./middlewares/passport');
 const authController = require('./controllers/authController');
 const programs = require('./routes/programs');
 const reports = require('./routes/reports');
 const payments = require('./routes/payments');
 const fs = require('fs');
+const queue = require('./services/queue');
 
 const app = express();
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs/access.log'), { flags: 'a' });
@@ -25,6 +28,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(mongoSanitize());
 app.use(xss());
 app.use(csrf({ cookie: true }));
@@ -43,11 +53,24 @@ if (!process.env.MONGO_URI) {
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser:true, useUnifiedTopology:true })
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error(err));
+queue.connect().catch(err => console.error('Queue error', err));
 
 // Auth routes
 app.post('/auth/register', authController.register);
 app.post('/auth/login',    authController.login);
 app.get ('/auth/logout',   authController.logout);
+app.get('/auth/google', passport.authenticate('google', { scope:['profile','email'] }));
+app.get('/auth/google/callback', passport.authenticate('google', {
+  failureRedirect: '/'
+}), (req,res)=>{
+  res.redirect('/pages/hacker-dashboard.html');
+});
+app.get('/auth/github', passport.authenticate('github', { scope:['user:email'] }));
+app.get('/auth/github/callback', passport.authenticate('github', {
+  failureRedirect: '/'
+}), (req,res)=>{
+  res.redirect('/pages/hacker-dashboard.html');
+});
 
 app.use('/api/programs', programs);
 app.use('/api/reports', reports);
