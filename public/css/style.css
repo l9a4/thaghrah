@@ -57,8 +57,9 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 .container{max-width:1000px;margin:2rem auto;padding:0 1rem;}
 .features{padding:4rem 0;background:var(--input-bg);}
 .features h2{text-align:center;font-size:2rem;margin-bottom:2rem;background:linear-gradient(45deg,#00d2ff,#ff00ea);-webkit-background-clip:text;color:transparent;}
-.feature-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
-.card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);padding:2rem;border-radius:8px;text-align:center;}
+.feature-cards{display:flex;gap:1.5rem;overflow:hidden;animation:marquee 25s linear infinite;}
+.card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);padding:2rem;border-radius:8px;text-align:center;flex:0 0 auto;min-width:220px;}
+@keyframes marquee{from{transform:translateX(100%);}to{transform:translateX(-100%);}}
 
 /* Testimonials */
 .testimonials{padding:4rem 0;}
@@ -134,7 +135,7 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
   .hero h1 { font-size: 1.8rem; }
   .hero p  { font-size: 0.9rem; }
 
-  .feature-cards, .testimonial-cards, .course-cards, .plans {
+  .testimonial-cards, .course-cards, .plans {
     grid-template-columns: 1fr;
   }
 }
