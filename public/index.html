@@ -33,7 +33,7 @@
 
   <!-- شريط التنقل -->
   <header class="navbar" role="navigation">
-    <div class="logo">thaghrah</div>
+    <a href="/" class="logo">thaghrah</a>
     <nav class="nav-links">
       <a href="/pages/programs.html" aria-label="البرامج">Programs</a>
       <a href="/pages/courses.html" aria-label="الدورات">Courses</a>
@@ -128,12 +128,12 @@
       <button class="modal-close" aria-label="Close" onclick="closeAuth()">×</button>
       <h2 id="auth-heading">تسجيل دخول</h2>
       <form id="authForm">
-        <input type="email" id="authEmail" placeholder="Email" required />
-        <input type="password" id="authPass" placeholder="Password" required />
+        <input type="email" id="authEmail" placeholder="البريد الإلكتروني" required />
+        <input type="password" id="authPass" placeholder="كلمة المرور" required />
         <button type="submit" class="btn-primary">دخول</button>
       </form>
       <p>
-        ليس لديك حساب؟ 
+        ليس لديك حساب؟
         <a href="#" onclick="switchAuth('register')">إنشاء حساب</a>
       </p>
     </div>
