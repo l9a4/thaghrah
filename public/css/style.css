@@ -57,9 +57,11 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 .container{max-width:1000px;margin:2rem auto;padding:0 1rem;}
 .features{padding:4rem 0;background:var(--input-bg);}
 .features h2{text-align:center;font-size:2rem;margin-bottom:2rem;background:linear-gradient(45deg,#00d2ff,#ff00ea);-webkit-background-clip:text;color:transparent;}
-.feature-cards{display:flex;gap:1.5rem;overflow:hidden;animation:marquee 25s linear infinite;}
+.feature-marquee{overflow:hidden;}
+.marquee-group{display:flex;gap:1.5rem;width:max-content;animation:scroll 25s linear infinite;}
+.feature-marquee:hover .marquee-group{animation-play-state:paused;}
 .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);padding:2rem;border-radius:8px;text-align:center;flex:0 0 auto;min-width:220px;}
-@keyframes marquee{from{transform:translateX(100%);}to{transform:translateX(-100%);}}
+@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* Testimonials */
 .testimonials{padding:4rem 0;}
