@@ -12,10 +12,10 @@
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <h3>${p.name}</h3>
+        <h3><a href="/pages/program-detail.html?id=${p._id}">${p.name}</a></h3>
         <p>المكافأة: ${p.reward}</p>
         <p>${p.description}</p>
-        <a href="/pages/submit.html?program=${p.id}" class="btn btn-primary">أرسل تقرير</a>
+        <a href="/pages/submit.html?program=${p._id}" class="btn btn-primary">أرسل تقرير</a>
       `;
       list.appendChild(card);
     });
