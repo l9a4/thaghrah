@@ -22,4 +22,15 @@ router.get('/', async (_, res) => {
   res.json({ success: true, programs });
 });
 
+// Program detail
+router.get('/:id', async (req, res) => {
+  try {
+    const program = await Program.findById(req.params.id);
+    if (!program) return res.status(404).json({ success: false, message: 'Not found' });
+    res.json({ success: true, program });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
 module.exports = router;
