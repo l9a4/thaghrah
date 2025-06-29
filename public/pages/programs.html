@@ -1,77 +1,49 @@
-diff --git a/public/pages/programs.html b/public/pages/programs.html
-index c90bf054c51fb69dc8c42ac1e8bade11d02a7560..0a71a15fc322f1f748c8d8502e4cdf67b551c4fb 100644
---- a/public/pages/programs.html
-+++ b/public/pages/programs.html
-@@ -1,23 +1,50 @@
--<div class="container">
--  <h2>قائمة برامج Bug Bounty</h2>
--  <div id="programs-list" class="feature-cards"></div>
--</div>
-+<!DOCTYPE html>
-+<html lang="ar" dir="rtl">
-+<head>
-+  <meta charset="UTF-8"/>
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-+  <title>البرامج – thaghrah</title>
-+  <link rel="stylesheet" href="/css/style.css"/>
-+</head>
-+<body>
-+  <header class="navbar">
-+    <button id="hamburger" class="mobile-menu"><span></span><span></span><span></span></button>
-+    <a href="/" class="logo">thaghrah</a>
-+    <nav id="navLinks" class="nav-links">
-+      <a href="/pages/courses.html">Courses</a>
-+      <a href="/pages/submit.html">Submit Bug</a>
-+      <a href="/pages/programs.html" class="active">Programs</a>
-+      <a href="/pages/login.html">تسجيل دخول</a>
-+      <a href="/pages/register.html">إنشاء حساب</a>
-+    </nav>
-+  </header>
-+
-+  <main class="container">
-+    <h2>قائمة برامج Bug Bounty</h2>
-+    <div id="programs-list" class="feature-cards"></div>
-+  </main>
-+
-+  <footer class="footer"><p>© 2025 thaghrah.</p></footer>
-+
-+  <script src="/js/menu.js"></script>
-+  <script>
-+    (async () => {
-+      const res = await fetch('/api/programs');
-+      const { programs } = await res.json();
-+      const list = document.getElementById('programs-list');
-+      programs.forEach(p => {
-+        const card = document.createElement('div');
-+        card.className = 'card';
-+        card.innerHTML = `
-+          <h3>${p.name}</h3>
-+          <p>المكافأة: ${p.reward}</p>
-+          <p>${p.description}</p>
-+          <a href="/pages/submit.html?program=${p.id}" class="btn btn-primary">أرسل تقرير</a>
-+        `;
-+        list.appendChild(card);
-+      });
-+    })();
-+  </script>
-+</body>
-+</html>
- 
--<script>
--  (async () => {
--    const res = await fetch('/api/programs');
--    const { programs } = await res.json();
--    const list = document.getElementById('programs-list');
--    programs.forEach(p => {
--      const card = document.createElement('div');
--      card.className = 'card';
--      card.innerHTML = `
--        <h3>${p.name}</h3>
--        <p>المكافأة: ${p.reward}</p>
--        <p>${p.description}</p>
--        <a href="/pages/submit.html?program=${p.id}" class="btn btn-primary">أرسل تقرير</a>
--      `;
--      list.appendChild(card);
--    });
--  })();
--</script>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>البرامج – thaghrah</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <button id="hamburger" class="mobile-menu"><span></span><span></span><span></span></button>
+    <a href="/" class="logo">thaghrah</a>
+    <nav id="navLinks" class="nav-links">
+      <a href="/pages/courses.html">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/programs.html" class="active">Programs</a>
+      <a href="/pages/login.html">تسجيل دخول</a>
+      <a href="/pages/register.html">إنشاء حساب</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>قائمة برامج Bug Bounty</h2>
+    <div id="programs-list" class="feature-cards"></div>
+  </main>
+
+  <footer class="footer"><p>© 2025 thaghrah.</p></footer>
+
+  <script src="/js/menu.js"></script>
+  <script>
+    (async () => {
+      const res = await fetch('/api/programs');
+      const { programs } = await res.json();
+      const list = document.getElementById('programs-list');
+      programs.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${p.name}</h3>
+          <p>المكافأة: ${p.reward}</p>
+          <p>${p.description}</p>
+          <a href="/pages/submit.html?program=${p.id}" class="btn btn-primary">أرسل تقرير</a>
+        `;
+        list.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>

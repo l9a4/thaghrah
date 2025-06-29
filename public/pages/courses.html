@@ -1,34 +1,41 @@
-diff --git a/public/pages/courses.html b/public/pages/courses.html
-index b57a195952452e2c32e6f558ad6cc7358fb5917f..249a2399caa1663d26035845774e220ee43f7a5e 100644
---- a/public/pages/courses.html
-+++ b/public/pages/courses.html
-@@ -14,27 +14,29 @@
-       <a href="/pages/courses.html" class="active">Courses</a>
-       <a href="/pages/submit.html">Submit Bug</a>
-       <a href="/pages/login.html">تسجيل دخول</a>
-       <a href="/pages/register.html">إنشاء حساب</a>
-       <a href="?lang=en" class="lang-toggle">EN</a>
-     </nav>
-   </header>
- 
-   <main class="container">
-     <h2>الدورات المتاحة</h2>
-     <div class="course-cards">
-       <div class="course-card">
-         <h3>Penetration Testing للمبتدئين</h3>
-         <p>300 جنيه</p>
-         <button onclick="location.href='/pages/subscription.html?item=course1'" class="btn-primary">اشتري الآن</button>
-       </div>
-       <div class="course-card">
-         <h3>أساسيات الأمن السيبراني</h3>
-         <p>500 جنيه</p>
-         <button onclick="location.href='/pages/subscription.html?item=course2'" class="btn-primary">اشتري الآن</button>
-       </div>
-     </div>
-   </main>
- 
-   <footer class="footer"><p>© 2025 thaghrah.</p></footer>
-+  <script src="/js/menu.js"></script>
- </body>
- </html>
-+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الدورات – thaghrah</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <!-- إزالة الفيديو الخلفي -->
+  <header class="navbar">
+    <a href="/" class="logo">thaghrah</a>
+    <nav class="nav-links">
+      <a href="/pages/courses.html" class="active">Courses</a>
+      <a href="/pages/submit.html">Submit Bug</a>
+      <a href="/pages/login.html">تسجيل دخول</a>
+      <a href="/pages/register.html">إنشاء حساب</a>
+      <a href="?lang=en" class="lang-toggle">EN</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>الدورات المتاحة</h2>
+    <div class="course-cards">
+      <div class="course-card">
+        <h3>Penetration Testing للمبتدئين</h3>
+        <p>300 جنيه</p>
+        <button onclick="location.href='/pages/subscription.html?item=course1'" class="btn-primary">اشتري الآن</button>
+      </div>
+      <div class="course-card">
+        <h3>أساسيات الأمن السيبراني</h3>
+        <p>500 جنيه</p>
+        <button onclick="location.href='/pages/subscription.html?item=course2'" class="btn-primary">اشتري الآن</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><p>© 2025 thaghrah.</p></footer>
+  <script src="/js/menu.js"></script>
+</body>
+</html>
