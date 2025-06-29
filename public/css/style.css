@@ -3,7 +3,26 @@
 
 /* Reset */
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+:root{
+  --bg-color:#000;
+  --text-color:#fff;
+  --accent-gradient:linear-gradient(45deg,#00d2ff,#ff00ea);
+  --card-bg:rgba(255,255,255,0.05);
+  --card-border:rgba(255,255,255,0.2);
+  --input-bg:#111;
+  --btn-text:#000;
+  color-scheme: dark light;
+}
+body.light{
+  --bg-color:#fff;
+  --text-color:#000;
+  --card-bg:rgba(0,0,0,0.05);
+  --card-border:rgba(0,0,0,0.2);
+  --input-bg:#f1f1f1;
+  --btn-text:#fff;
+  color-scheme: light dark;
+}
+html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var(--bg-color);color:var(--text-color);overflow-x:hidden;}
 
 /* Video BG */
 .bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.6;}
@@ -12,12 +31,12 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:#00
 .navbar{display:flex;align-items:center;justify-content:space-between;padding:1rem;background:rgba(0,0,0,0.7);position:sticky;top:0;z-index:100;}
 .logo{font-size:1.8rem;font-weight:700;background:linear-gradient(45deg,#00d2ff,#ff00ea);-webkit-background-clip:text;color:transparent;text-decoration:none;}
 .nav-links{display:flex;align-items:center;}
-.nav-links a, .nav-links .btn-auth{margin-left:1rem;color:#fff;text-decoration:none;padding:.5rem 1rem;border:1px solid transparent;border-radius:4px;transition:background .3s;}
+.nav-links a, .nav-links .btn-auth{margin-left:1rem;color:var(--text-color);text-decoration:none;padding:.5rem 1rem;border:1px solid transparent;border-radius:4px;transition:background .3s;}
 .nav-links a:hover, .nav-links .btn-auth:hover{background:rgba(255,255,255,0.1);}
 
 /* Hamburger */
 .mobile-menu{display:none;background:none;border:none;flex-direction:column;gap:4px;cursor:pointer;}
-.mobile-menu span{width:25px;height:3px;background:#fff;border-radius:2px;}
+.mobile-menu span{width:25px;height:3px;background:var(--text-color);border-radius:2px;}
 @media(max-width:768px){
   .mobile-menu{display:flex;}
   .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(0,0,0,0.9);display:none;}
@@ -36,7 +55,7 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:#00
 
 /* Features */
 .container{max-width:1000px;margin:2rem auto;padding:0 1rem;}
-.features{padding:4rem 0;background:#111;}
+.features{padding:4rem 0;background:var(--input-bg);}
 .features h2{text-align:center;font-size:2rem;margin-bottom:2rem;background:linear-gradient(45deg,#00d2ff,#ff00ea);-webkit-background-clip:text;color:transparent;}
 .feature-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
 .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);padding:2rem;border-radius:8px;text-align:center;}
@@ -65,7 +84,7 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:#00
   text-align:center;
 }
 .auth-form input, .auth-form select, .auth-form textarea, .plan-card, .course-card, .report-card input, .report-card textarea {
-  width:100%;margin:.75rem 0;padding:.75rem;border:none;border-radius:4px;background:#111;color:#fff;
+  width:100%;margin:.75rem 0;padding:.75rem;border:none;border-radius:4px;background:var(--input-bg);color:var(--text-color);
 }
 
 /* Courses */
@@ -75,6 +94,12 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:#00
 
 /* Submission */
 .report-card textarea{resize:vertical;}
+.report-card input[type=file]{
+  padding:.5rem;
+  background:none;
+  border:1px solid var(--card-border);
+  color:var(--text-color);
+}
 
 /* Plans */
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;width:100%;max-width:800px;}
@@ -113,3 +138,37 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:#00
     grid-template-columns: 1fr;
   }
 }
+
+/* Theme toggle */
+.theme-toggle{background:none;border:1px solid var(--card-border);border-radius:4px;color:var(--text-color);margin-left:.5rem;cursor:pointer;padding:.3rem .5rem;}
+
+/* How It Works */
+.how-it-works ol{list-style:decimal inside;padding:1rem 2rem;background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;}
+.how-it-works li{margin:.5rem 0;font-size:1.1rem;}
+
+/* Error message */
+.error{color:#f66;margin-top:.5rem;font-size:.9rem;}
+.success{color:#6f6;margin-top:.5rem;font-size:.9rem;}
+.count{display:block;text-align:left;font-size:.8rem;opacity:.7;}
+
+/* Password field */
+.password-field{position:relative;}
+.password-field input{padding-right:2.5rem;}
+.toggle-pass{position:absolute;top:50%;right:.5rem;transform:translateY(-50%);background:none;border:none;color:var(--text-color);cursor:pointer;}
+
+/* FAQ */
+.faq{max-width:600px;margin:2rem auto;}
+.faq-item{border-bottom:1px solid var(--card-border);}
+.faq-item button{width:100%;padding:1rem;background:none;border:none;color:var(--text-color);text-align:right;font-size:1rem;font-weight:600;cursor:pointer;}
+.faq-item p{padding:1rem;background:var(--card-bg);border-top:1px solid var(--card-border);}
+
+/* Back to Top */
+#backToTop{position:fixed;right:1rem;bottom:1rem;background:var(--card-bg);border:1px solid var(--card-border);border-radius:50%;padding:.5rem;font-size:1.2rem;color:var(--text-color);text-decoration:none;display:none;}
+
+/* Header scroll */
+.navbar.scrolled{padding:.5rem;background:rgba(0,0,0,0.9);}
+
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
