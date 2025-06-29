@@ -1,21 +1,23 @@
+// models/User.js
+
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt   = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  email:   { type: String, required: true, unique: true },
-  password:{ type: String, required: true },
-  role:    { type: String, enum: ['hacker','company'], default: 'hacker' }
+  email:    { type: String, required: true, unique: true },
+  password: { type: String, required: true, select: false },
+  role:     { type: String, enum: ['hacker','company'], default: 'hacker' }
 });
 
-// Hash password before saving
-userSchema.pre('save', async function(next){
+// قبل الحفظ: تشفير كلمة المرور
+userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, 12);
   next();
 });
 
-// Compare password for login
-userSchema.methods.comparePassword = function(candidate){
+// دالة المقارنة
+userSchema.methods.comparePassword = function (candidate) {
   return bcrypt.compare(candidate, this.password);
 };
 

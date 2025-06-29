@@ -1,0 +1,286 @@
+```css
+/* public/css/style.css */
+
+/* استيراد خط Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* خلفية الفيديو مشتركة */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* شريط التنقل */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00d2ff, #ff00ea);
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+.navbar .nav-links a,
+.navbar .nav-links button {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.navbar .nav-links a:hover,
+.navbar .nav-links button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.lang-toggle {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  text-decoration: none;
+}
+.lang-toggle:hover {
+  color: #fff;
+}
+
+/* قسم Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  padding: 0 1rem;
+  position: relative;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #00d2ff, #ff00ea);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #00d2ff, #ff00ea);
+  color: #000;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+.scroll-down {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(10px); }
+  60% { transform: translateY(5px); }
+}
+
+/* قسم المزايا */
+.features {
+  padding: 4rem 2rem;
+  background: #111;
+}
+.features h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #00d2ff, #ff00ea);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.card img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+.card p {
+  font-size: 0.95rem;
+}
+
+/* شهادات المستخدمين */
+.testimonials {
+  padding: 4rem 2rem;
+}
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #00d2ff, #ff00ea);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+.testimonial-card p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.testimonial-card cite {
+  display: block;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* دعوة ثانوية CTA */
+.cta-secondary {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.cta-secondary h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.cta-secondary .btn-primary {
+  font-size: 1rem;
+}
+
+/* Modal تسجيل/دخول */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.modal {
+  background: #111;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+.modal h2 {
+  margin-bottom: 1rem;
+}
+.modal form input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 4px;
+}
+.modal form button {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+/* صفحة الدورات */
+.courses-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.courses-hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.courses-hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+```
