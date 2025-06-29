@@ -1,35 +1,36 @@
-diff --git a/public/pages/hacker-dashboard.html b/public/pages/hacker-dashboard.html
-index 6889b69d6c28ecdf26aa1389dc76d05ac8321c58..dd8b78e37e49c51abd9cd4d52eae35d6797ee9b2 100644
---- a/public/pages/hacker-dashboard.html
-
-@@ -10,27 +10,29 @@
-     <table id="reports-table" class="report-table"></table>
-   </div>
-   <script>
-     (async () => {
-       const res = await fetch('/api/hacker/reports');
-       if (!res.ok) return location.href='/pages/login.html';
-       const { stats, reports } = await res.json();
-       const sc = document.getElementById('stats');
-       Object.entries(stats).forEach(([k,v])=>{
-         const card = document.createElement('div');
-         card.className='card';
-         card.innerHTML = `<h3>${k==='totalReports'?'إجمالي التقارير':'إجمالي المكافآت'}</h3><p>${v}</p>`;
-         sc.appendChild(card);
-       });
-       const tbl = document.getElementById('reports-table');
-       tbl.innerHTML = `<thead><tr><th>العنوان</th><th>التاريخ</th><th>الحالة</th><th>المكافأة</th></tr></thead>
-         <tbody>${reports.map(r=>`
-           <tr>
-             <td>${r.title}</td>
-             <td>${new Date(r.createdAt).toLocaleDateString()}</td>
-             <td>${r.status}</td>
-             <td>${r.reward}</td>
-           </tr>`).join('')}</tbody>`;
-     })();
-   </script>
-
- </body>
- </html>
-
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>…</head>
+<body>
+  <header class="navbar">…</header>
+  <div class="container">
+    <h2>لوحة التحكم – باحث</h2>
+    <div id="stats" class="feature-cards"></div>
+    <h3>تقاريرك الأخيرة</h3>
+    <table id="reports-table" class="report-table"></table>
+  </div>
+  <script>
+    (async () => {
+      const res = await fetch('/api/hacker/reports');
+      if (!res.ok) return location.href='/pages/login.html';
+      const { stats, reports } = await res.json();
+      const sc = document.getElementById('stats');
+      Object.entries(stats).forEach(([k,v])=>{
+        const card = document.createElement('div');
+        card.className='card';
+        card.innerHTML = `<h3>${k==='totalReports'?'إجمالي التقارير':'إجمالي المكافآت'}</h3><p>${v}</p>`;
+        sc.appendChild(card);
+      });
+      const tbl = document.getElementById('reports-table');
+      tbl.innerHTML = `<thead><tr><th>العنوان</th><th>التاريخ</th><th>الحالة</th><th>المكافأة</th></tr></thead>
+        <tbody>${reports.map(r=>`
+          <tr>
+            <td>${r.title}</td>
+            <td>${new Date(r.createdAt).toLocaleDateString()}</td>
+            <td>${r.status}</td>
+            <td>${r.reward}</td>
+          </tr>`).join('')}</tbody>`;
+    })();
+  </script>
+</body>
+</html>

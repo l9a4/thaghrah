@@ -39,4 +39,3 @@ const createSendToken = (user,status,res) => {
   res.cookie('jwt',token,{ httpOnly:true, maxAge:86400000 });
   res.status(status).json({ success:true });
 };
-

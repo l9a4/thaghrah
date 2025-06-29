@@ -1,31 +1,23 @@
-diff --git a/public/pages/programs.html b/public/pages/programs.html
-index c90bf054c51fb69dc8c42ac1e8bade11d02a7560..0a71a15fc322f1f748c8d8502e4cdf67b551c4fb 100644
---- a/public/pages/programs.html
+<div class="container">
+  <h2>قائمة برامج Bug Bounty</h2>
+  <div id="programs-list" class="feature-cards"></div>
+</div>
 
-@@ -1,23 +1,50 @@
--<div class="container">
--  <h2>قائمة برامج Bug Bounty</h2>
--  
--</div>
-
- 
--<script>
--  (async () => {
--    const res = await fetch('/api/programs');
--    const { programs } = await res.json();
--    const list = document.getElementById('programs-list');
--    programs.forEach(p => {
--      const card = document.createElement('div');
--      card.className = 'card';
--      card.innerHTML = `
--        <h3>${p.name}</h3>
--        <p>المكافأة: ${p.reward}</p>
--        <p>${p.description}</p>
--        <a href="/pages/submit.html?program=${p.id}" class="btn btn-primary">أرسل تقرير</a>
--      `;
--      list.appendChild(card);
--    });
--  })();
--</script>
-
-
+<script>
+  (async () => {
+    const res = await fetch('/api/programs');
+    const { programs } = await res.json();
+    const list = document.getElementById('programs-list');
+    programs.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h3>${p.name}</h3>
+        <p>المكافأة: ${p.reward}</p>
+        <p>${p.description}</p>
+        <a href="/pages/submit.html?program=${p.id}" class="btn btn-primary">أرسل تقرير</a>
+      `;
+      list.appendChild(card);
+    });
+  })();
+</script>

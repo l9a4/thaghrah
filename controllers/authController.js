@@ -50,4 +50,3 @@ exports.protect = (req, res, next) => {
     res.status(401).json({ success: false, message: err.message });
   }
 };
-

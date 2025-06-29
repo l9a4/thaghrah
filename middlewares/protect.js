@@ -13,4 +13,3 @@ module.exports = async (req, res, next) => {
     res.status(401).json({ success: false, message: err.message });
   }
 };
-
