@@ -9,3 +9,4 @@ const bountySchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Bounty', bountySchema);
+
