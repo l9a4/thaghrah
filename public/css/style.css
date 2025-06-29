@@ -94,6 +94,12 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 
 /* Submission */
 .report-card textarea{resize:vertical;}
+.report-card input[type=file]{
+  padding:.5rem;
+  background:none;
+  border:1px solid var(--card-border);
+  color:var(--text-color);
+}
 
 /* Plans */
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;width:100%;max-width:800px;}
@@ -142,4 +148,5 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 
 /* Error message */
 .error{color:#f66;margin-top:.5rem;font-size:.9rem;}
+.success{color:#6f6;margin-top:.5rem;font-size:.9rem;}
 

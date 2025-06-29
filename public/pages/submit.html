@@ -1,51 +1,63 @@
-<form id="submit-form">
-  <div class="form-group">
-    <select id="program-select" name="program" required>
-      <option value="" disabled selected hidden>اختر البرنامج</option>
-    </select>
-    <label>البرنامج</label>
-  </div>
-  <div class="form-group">
-    <input type="text" name="title" placeholder=" " required/>
-    <label>عنوان التقرير</label>
-  </div>
-  <div class="form-group">
-    <textarea name="description" placeholder=" " rows="4" required></textarea>
-    <label>الوصف</label>
-  </div>
-  <button type="submit" class="btn btn-primary">أرسل التقرير</button>
-</form>
-
-<script>
-  (async () => {
-    // ملء قائمة البرامج
-    const res = await fetch('/api/programs');
-    const { programs } = await res.json();
-    const sel = document.getElementById('program-select');
-    programs.forEach(p => {
-      const opt = document.createElement('option');
-      opt.value = p.id; opt.textContent = p.name;
-      sel.appendChild(opt);
-    });
-  })();
-
-  document.getElementById('submit-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
-    const res = await fetch('/api/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    const json = await res.json();
-    if (json.success) {
-      alert('تم إرسال التقرير بنجاح!');
-      e.target.reset();
-    } else {
-      alert('خطأ أثناء الإرسال.');
-    }
-  });
-</script>
-<script src="/js/theme.js"></script>
-<script src="/js/menu.js"></script>
-<script src="/js/sw-register.js"></script>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="أرسل تقارير الثغرات عبر منصة thaghrah"/>
+  <meta property="og:title" content="تقديم بلاغ – thaghrah"/>
+  <meta property="og:description" content="ساهم في تحسين الأمان بإرسال تقرير ثغرة"/>
+  <meta property="og:image" content="/assets/og-image.png"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#000000"/>
+  <title>تقديم بلاغ – thaghrah</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <button id="hamburger" class="mobile-menu" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/" class="logo">thaghrah</a>
+    <nav id="navLinks" class="nav-links">
+      <a href="/pages/courses.html">Courses</a>
+      <a href="/pages/submit.html" class="active">Submit Bug</a>
+      <a href="/pages/login.html">تسجيل دخول</a>
+      <a href="/pages/register.html">إنشاء حساب</a>
+      <a href="?lang=en" class="lang-toggle">EN</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
+  <main class="container">
+    <h2>إرسال تقرير ثغرة</h2>
+    <div class="report-card">
+      <form id="submit-form" class="auth-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <select id="program-select" name="program" required aria-label="Program">
+            <option value="" disabled selected hidden>اختر البرنامج</option>
+          </select>
+          <label for="program-select">البرنامج</label>
+        </div>
+        <div class="form-group">
+          <input type="text" name="title" placeholder=" " required aria-label="عنوان التقرير"/>
+          <label>عنوان التقرير</label>
+        </div>
+        <div class="form-group">
+          <textarea name="description" placeholder=" " rows="4" required aria-label="الوصف"></textarea>
+          <label>الوصف</label>
+        </div>
+        <div class="form-group">
+          <input type="file" name="files" id="files" multiple aria-label="ملفات داعمة"/>
+          <label for="files">ملفات داعمة</label>
+        </div>
+        <button type="submit" class="btn-primary">أرسل التقرير</button>
+      </form>
+      <p id="submitMsg" class="error" hidden></p>
+    </div>
+  </main>
+  <footer class="footer"><p>© 2025 thaghrah.</p></footer>
+  <script src="/js/theme.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/submit.js"></script>
+  <script src="/js/sw-register.js"></script>
+</body>
+</html>
