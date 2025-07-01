@@ -13,10 +13,6 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  <!-- خلفية الفيديو تظهر هنا فقط -->
-  <video autoplay muted loop class="bg-video" aria-hidden="true">
-    <source src="/assets/cyber-bg.mp4" type="video/mp4" />
-  </video>
 
   <!-- Navbar مع أيقونة هامبرغر -->
   <header class="navbar">
@@ -57,21 +53,22 @@
   </section>
 
   <!-- How It Works -->
-  <section class="container how-it-works reveal">
-  <section class="container how-it-works">
+  <section class="how-it-works container marquee reveal">
     <h2>كيف نعمل؟</h2>
-    <ol>
-      <li>إنشئ حسابك</li>
-      <li>اختر البرنامج المناسب</li>
-      <li>قدّم تقريرك الأمني</li>
-      <li>استلم مكافأتك</li>
-    </ol>
+    <div class="marquee-inner">
+      <ol>
+        <li>إنشئ حسابك</li>
+        <li>اختر البرنامج المناسب</li>
+        <li>قدّم تقريرك الأمني</li>
+        <li>استلم مكافأتك</li>
+      </ol>
+    </div>
   </section>
 
   <!-- Testimonials -->
-  <section class="testimonials container reveal">
+  <section class="testimonials container marquee reveal">
     <h2>آراء المستخدمين</h2>
-    <div class="testimonial-cards">
+    <div class="marquee-inner testimonial-cards">
       <div class="testimonial-card"><p>"ثغرة غيرت مفهوم الأمان في شركتنا!"</p><cite>– أحمد علي، CTO</cite></div>
       <div class="testimonial-card"><p>"واجهة رائعة وسهلة الاستخدام."</p><cite>– محمد سعيد، Hunter</cite></div>
     </div>

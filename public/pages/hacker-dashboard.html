@@ -13,7 +13,6 @@
   <title>لوحة الباحث – thaghrah</title>
 </head>
 <body class="reveal">
-<body>
   <header class="navbar">
     <a href="/" class="logo">thaghrah</a>
     <nav class="nav-links">
@@ -25,16 +24,44 @@
     </nav>
   </header>
   <div class="container reveal">
-  <div class="container">
     <h2>لوحة التحكم – باحث</h2>
     <div id="stats" class="feature-cards"></div>
     <h3>تقاريرك الأخيرة</h3>
     <table id="reports-table" class="report-table"></table>
+
+    <h3>إرسال تقرير جديد</h3>
+    <div class="report-card">
+      <form id="submit-form" class="auth-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <select id="program-select" name="program" required aria-label="Program">
+            <option value="" disabled selected hidden>اختر البرنامج</option>
+          </select>
+          <label for="program-select">البرنامج</label>
+        </div>
+        <div class="form-group">
+          <input type="text" name="title" placeholder=" " required aria-label="عنوان التقرير"/>
+          <label>عنوان التقرير</label>
+        </div>
+        <div class="form-group">
+          <textarea name="description" placeholder=" " rows="4" required aria-label="الوصف"></textarea>
+          <label>الوصف</label>
+          <span id="descCount" class="count"></span>
+        </div>
+        <div class="form-group">
+          <input type="file" name="files" id="files" multiple aria-label="ملفات داعمة"/>
+          <label for="files">ملفات داعمة</label>
+        </div>
+        <button type="submit" class="btn-primary">أرسل التقرير</button>
+      </form>
+      <p id="submitMsg" class="error" hidden></p>
+    </div>
   </div>
   <script src="/js/theme.js"></script>
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
   <script src="/js/scroll-reveal.js"></script>
+  <script src="/js/draft.js"></script>
+  <script src="/js/submit.js"></script>
   <script>
     (async () => {
       const res = await fetch('/api/hacker/reports');
