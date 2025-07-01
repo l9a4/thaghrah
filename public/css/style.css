@@ -24,8 +24,7 @@ body.light{
 }
 html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var(--bg-color);color:var(--text-color);overflow-x:hidden;}
 
-/* Video BG */
-.bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.6;}
+
 
 /* Navbar */
 .navbar{display:flex;align-items:center;justify-content:space-between;padding:1rem;background:rgba(0,0,0,0.7);position:sticky;top:0;z-index:100;}
@@ -55,7 +54,7 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 
 /* Features */
 .container{max-width:1000px;margin:2rem auto;padding:0 1rem;}
-.features{padding:4rem 0;background:var(--input-bg);}
+.features{padding:4rem 0;background:#000;}
 .features h2{text-align:center;font-size:2rem;margin-bottom:2rem;background:linear-gradient(45deg,#00d2ff,#ff00ea);-webkit-background-clip:text;color:transparent;}
 .feature-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
 .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);padding:2rem;border-radius:8px;text-align:center;}
@@ -167,6 +166,11 @@ html,body{width:100%;height:100%;font-family:'Poppins',sans-serif;background:var
 
 /* Header scroll */
 .navbar.scrolled{padding:.5rem;background:rgba(0,0,0,0.9);}
+
+/* Marquee effect */
+.marquee{overflow:hidden;position:relative;}
+.marquee-inner{display:flex;gap:2rem;white-space:nowrap;animation:marquee 20s linear infinite;}
+@keyframes marquee{from{transform:translateX(100%);}to{transform:translateX(-100%);}}
 
 
 /* Scroll reveal */

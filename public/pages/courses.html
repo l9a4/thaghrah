@@ -28,16 +28,13 @@
 
   <main class="container reveal">
     <h2>الدورات المتاحة</h2>
+    <p>اشترِ الدورة وتمتع بالوصول الحصري للمحتوى الكامل.</p>
     <div class="course-cards">
       <div class="course-card">
         <h3>Penetration Testing للمبتدئين</h3>
-        <p>300 جنيه</p>
-        <button onclick="location.href='/pages/subscription.html?item=course1'" class="btn-primary">اشتري الآن</button>
-      </div>
-      <div class="course-card">
-        <h3>أساسيات الأمن السيبراني</h3>
-        <p>500 جنيه</p>
-        <button onclick="location.href='/pages/subscription.html?item=course2'" class="btn-primary">اشتري الآن</button>
+        <p><del>1200</del> 400 جنيه</p>
+        <button id="buyCourse" class="btn-primary">اشتري الآن</button>
+        <a id="courseLink" href="https://example.com/full-course" hidden>رابط الدورة</a>
       </div>
     </div>
   </main>
@@ -48,8 +45,18 @@
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
   <script src="/js/scroll-reveal.js"></script>
-  <script src="/js/theme.js"></script>
-  <script src="/js/menu.js"></script>
   <script src="/js/sw-register.js"></script>
+  <script>
+    const link = document.getElementById('courseLink');
+    const btn  = document.getElementById('buyCourse');
+    if(new URLSearchParams(location.search).get('paid')==='1'){
+      link.hidden = false;
+      btn.hidden = true;
+    } else {
+      btn.addEventListener('click', ()=>{
+        alert('سيتم فتح المحتوى بعد تأكيد الدفع');
+      });
+    }
+  </script>
 </body>
 </html>
