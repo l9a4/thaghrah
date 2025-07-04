@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    match /programs/{programId} {
+      allow read: if true;
+      allow create: if request.auth.token.role in ['company','admin'];
+      allow update, delete: if request.auth.token.role == 'admin' || (request.auth.token.role == 'company' && request.auth.uid == resource.data.createdBy);
+    }
+    match /reports/{reportId} {
+      allow create: if request.auth.token.role in ['hacker','admin'] && request.auth.uid == request.resource.data.reporterId;
+      allow read, update: if request.auth.token.role == 'admin' || request.auth.uid == resource.data.reporterId || (request.auth.token.role == 'company' && request.auth.uid == get(/databases/$(database)/documents/programs/$(resource.data.programId)).data.createdBy);
+    }
+    match /reports/{reportId}/messages/{msgId} {
+      allow create, read: if request.auth.token.role == 'admin' || request.auth.uid == get(/databases/$(database)/documents/reports/$(reportId)).data.reporterId || request.auth.uid == get(/databases/$(database)/documents/programs/$(get(/databases/$(database)/documents/reports/$(reportId)).data.programId)).data.createdBy;
+    }
+  }
+}

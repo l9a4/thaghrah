@@ -36,27 +36,35 @@
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
   <script src="/js/scroll-reveal.js"></script>
-  <script>
-    (async()=>{
-      const [pRes,rRes]=await Promise.all([
-        fetch('/api/company/programs'),
-        fetch('/api/company/reports')
-      ]);
-      if(!pRes.ok||!rRes.ok) return location.href='/pages/login.html';
-      const {programs}=await pRes.json();
-      const {reports}=await rRes.json();
+  <script type="module" src="/js/firebase-init.js"></script>
+  <script type="module" src="/js/auth-guard.js"></script>
+  <script type="module">
+    import { db, auth } from '../js/firebase-init.js';
+    import { guard } from '../js/auth-guard.js';
+    import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+    guard('company');
+    onAuthStateChanged(auth, async user => {
+      if (!user) return;
+      const progQ = query(collection(db, 'programs'), where('createdBy', '==', user.uid));
+      const progSnap = await getDocs(progQ);
+      const programs = [];
+      progSnap.forEach(d => programs.push({ id: d.id, ...d.data() }));
       const cp = document.getElementById('company-programs');
-      programs.forEach(p=>{
-        const c=document.createElement('div');
-        c.className='card';
-        c.innerHTML=`<h3>${p.name}</h3><p>المكافأة: ${p.reward}</p><p>${p.description}</p>`;
+      programs.forEach(p => {
+        const c = document.createElement('div');
+        c.className = 'card';
+        c.innerHTML = `<h3>${p.name}</h3><p>${p.description}</p>`;
         cp.appendChild(c);
       });
-      const cr=document.getElementById('company-reports');
-      cr.innerHTML=`<thead><tr><th>العنوان</th><th>الباحث</th><th>الحالة</th></tr></thead>`+
-        `<tbody>${reports.map(r=>`+
-          `<tr><td>${r.title}</td><td>${r.hacker}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
-    })();
+      const repQ = query(collection(db, 'reports'), where('programId', 'in', programs.map(p => p.id)));
+      const repSnap = await getDocs(repQ);
+      const reports = [];
+      repSnap.forEach(d => reports.push({ id: d.id, ...d.data() }));
+      const cr = document.getElementById('company-reports');
+      cr.innerHTML = `<thead><tr><th>العنوان</th><th>الحالة</th></tr></thead>`+
+        `<tbody>${reports.map(r=>`<tr><td>${r.title}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
+    });
   </script>
   <script src="/js/sw-register.js"></script>
   <a href="#" id="backToTop" aria-label="Back to top">↑</a>

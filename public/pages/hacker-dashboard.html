@@ -35,23 +35,24 @@
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
   <script src="/js/scroll-reveal.js"></script>
-  <script>
-    (async () => {
-      const res = await fetch('/api/hacker/reports');
-      if (!res.ok) return location.href='/pages/login.html';
-      const { stats, reports } = await res.json();
-      const sc = document.getElementById('stats');
-      Object.entries(stats).forEach(([k,v])=>{
-        const card = document.createElement('div');
-        card.className='card';
-        card.innerHTML = `<h3>${k==='totalReports'?'إجمالي التقارير':'إجمالي المكافآت'}</h3><p>${v}</p>`;
-        sc.appendChild(card);
-      });
+  <script type="module" src="/js/firebase-init.js"></script>
+  <script type="module" src="/js/auth-guard.js"></script>
+  <script type="module">
+    import { db, auth } from '../js/firebase-init.js';
+    import { guard } from '../js/auth-guard.js';
+    import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+    guard('hacker');
+    onAuthStateChanged(auth, async user => {
+      if (!user) return;
+      const q = query(collection(db, 'reports'), where('reporterId', '==', user.uid));
+      const snap = await getDocs(q);
+      const reports = [];
+      snap.forEach(d => reports.push({ id: d.id, ...d.data() }));
       const tbl = document.getElementById('reports-table');
-      tbl.innerHTML = `<thead><tr><th>العنوان</th><th>التاريخ</th><th>الحالة</th><th>المكافأة</th></tr></thead>`+
-        `<tbody>${reports.map(r=>`+
-          `<tr><td>${r.title}</td><td>${new Date(r.createdAt).toLocaleDateString()}</td><td>${r.status}</td><td>${r.reward}</td></tr>`).join('')}</tbody>`;
-    })();
+      tbl.innerHTML = `<thead><tr><th>العنوان</th><th>الحالة</th></tr></thead>`+
+        `<tbody>${reports.map(r=>`<tr><td>${r.title}</td><td>${r.status}</td></tr>`).join('')}</tbody>`;
+    });
   </script>
   <script src="/js/sw-register.js"></script>
   <a href="#" id="backToTop" aria-label="Back to top">↑</a>
