@@ -19,7 +19,7 @@
   <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
   <div class="auth-card">
     <h2>تسجيل دخول</h2>
-    <form action="/auth/login" method="POST" class="auth-form">
+    <form class="auth-form" data-mode="login">
       <input type="email" name="email" placeholder="البريد الإلكتروني" required autofocus/>
       <div class="password-field">
         <input type="password" name="password" placeholder="كلمة المرور" required/>
@@ -39,12 +39,11 @@
   <script src="/js/theme.js"></script>
   <script src="/js/menu.js"></script>
   <script src="/js/header.js"></script>
-  <script src="/js/auth-form.js"></script>
   <script src="/js/password-toggle.js"></script>
   <script src="/js/scroll-reveal.js"></script>
   <script src="/js/sw-register.js"></script>
+  <script type="module" src="/js/firebase-init.js"></script>
+  <script type="module" src="/js/auth-firebase.js"></script>
   <a href="#" id="backToTop" aria-label="Back to top">↑</a>
-  <script src="/js/auth-form.js"></script>
-  <script src="/js/sw-register.js"></script>
 </body>
 </html>

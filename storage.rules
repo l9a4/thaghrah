@@ -1,0 +1,12 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /reportsAttachments/{reportId}/{file} {
+      allow read, write: if request.auth != null && (
+        request.auth.token.role == 'admin' ||
+        request.auth.uid == get(/databases/$(database)/documents/reports/$(reportId)).data.reporterId ||
+        request.auth.uid == get(/databases/$(database)/documents/programs/$(get(/databases/$(database)/documents/reports/$(reportId)).data.programId)).data.createdBy
+      );
+    }
+  }
+}
